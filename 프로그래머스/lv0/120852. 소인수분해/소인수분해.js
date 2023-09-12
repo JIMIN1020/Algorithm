@@ -1,12 +1,15 @@
+// i = 2부터 n을 나눠가며 n의 약수 구한 뒤, set으로 중복 제거
 function solution(n) {
     let answer = [];
-    for (let i = 2; i <= n; i++) {
-        let count = 0;
-        for (let j = 2; j <= i; j++) {
-            i % j === 0 && count++;
-            if (count >= 2) break;
+    let i = 2;
+    while(i <= n) {
+        if (n % i === 0) {
+            n = n / i;
+            answer.push(i);
+        } else {
+            i++;
         }
-        count === 1 && (n % i === 0 && answer.push(i));
     }
-    return answer;
+    
+    return [...new Set(answer)];
 }

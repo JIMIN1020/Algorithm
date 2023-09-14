@@ -1,5 +1,7 @@
 function solution(array, n) {
-    const arr = [...array, n].sort((a, b) => a-b);
-    const idx = arr.indexOf(n);
-    return idx === 0 ? arr[idx+1] : idx === arr.length-1 ? arr[idx-1] : arr[idx] - arr[idx-1] > arr[idx+1] - arr[idx] ? arr[idx+1] : arr[idx-1]
+    const sorted = [...array].sort((a, b) => a-b)
+    const arr = sorted.map((v) => Math.abs(v - n));  // n을 뺀 값에 절대값
+    const min = Math.min(...arr);   // 최소값 찾기
+    const idx = arr.indexOf(min);   // 인덱스 구하기
+    return sorted[idx];
 }

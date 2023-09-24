@@ -3,7 +3,7 @@ function solution(i, j, k) {
     for(let n = i; n <= j; n++) {
         let num = n+"";
         while (num.includes(k)) {
-            num = num.replace(`${k}`, "");
+            num = num.replace(k, "");
             count++;
         }
     }

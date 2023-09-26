@@ -9,9 +9,7 @@ let input = [];
 rl.on('line', function (line) {
     input = line.split(' ');
 }).on('close', function () {
-    let str = "";
-    while (--input[1] >= 0) {
-        str += input[0];
-    }
-    console.log(str);
+    const str = input[0];
+    const n = input[1];
+    console.log(str.repeat(n));
 });

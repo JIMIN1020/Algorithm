@@ -1,10 +1,9 @@
 function solution(a, b) {
-    let num = [...a];
+    let sum = 0;
     
-    let i = 0;
-    while (i < a.length) {
-        num[i] *= b[i++];
+    for (let i = 0; i < a.length; i++) {
+        sum += a[i]*b[i];
     }
     
-    return num.reduce((a, c) => a + c, 0);
+    return sum;
 }

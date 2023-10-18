@@ -4,9 +4,10 @@ function solution(dart) {
     let bonus = dart.split(/\d/).filter((v) => v.length > 0);
     
     for (let i = 0; i < bonus.length; i++) {
-        let sc = score[i];
-        let bn = [...bonus[i]];
+        let sc = score[i];      // 점수
+        let bn = [...bonus[i]]; // 보너스 (& 옵션)
         
+        // 하나씩 체크하기
         bn.forEach((v) => {
             switch(v) {
                 case "D":
@@ -22,6 +23,7 @@ function solution(dart) {
             }
         })
        
+        // 계산한 값 넣어주기
         score[i] = sc;
     }
     

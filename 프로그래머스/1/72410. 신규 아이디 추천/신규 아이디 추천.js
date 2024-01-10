@@ -12,8 +12,7 @@ function solution(new_id) {
   if (id === "") id = "a";
 
   // 6단계
-  if (id.length >= 16) id = id.slice(0, 15);
-  if (id[id.length - 1] === ".") id = id.slice(0, 14);
+  if (id.length >= 16) id = id.slice(0, 15).replace(/\.$/, "");
 
   // 7단계
   while (id.length < 3) {

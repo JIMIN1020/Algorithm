@@ -2,9 +2,11 @@ const fs = require("fs");
 const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 let input = fs.readFileSync(filePath).toString().trim().split("\n");
 
+// 입력 값 받아오기
 let width = +input.shift();
 let square = input.map((line) => line.split(" "));
 
+// 종이 4등분 하는 함수
 function splitArray(arr, size) {
   const result = [];
   for (let i = 0; i < arr.length; i += size) {
@@ -19,6 +21,7 @@ function splitArray(arr, size) {
   return result;
 }
 
+// 1 or 0으로만 이루어져 있는지 체크하는 함수
 function checkValue(paper, value) {
   for (let row of paper) {
     for (let element of row) {
@@ -30,6 +33,7 @@ function checkValue(paper, value) {
   return true;
 }
 
+// 색종이 자르기 (재귀 함수)
 function cutting(paper, width) {
   // 탈출 조건
   if (checkValue(paper, "1")) {
@@ -40,6 +44,7 @@ function cutting(paper, width) {
 
   let subArr = splitArray(paper, width / 2);
 
+  // 자른 색종이 -> 또 자르기
   return (
     cutting(subArr[0], width / 2) +
     cutting(subArr[1], width / 2) +
